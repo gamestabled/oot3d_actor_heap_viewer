@@ -22,11 +22,13 @@ enum ActorType_enum {
 };
 
 typedef struct {
-    heap_node_t* heap_node_begin;
-    actor_t* actor_instance_begin;
+    // heap_node_t* heap_node_begin;
+    actor_t*  actor_instance_begin;
     ActorSize size;
+    uint16_t  actor_id;
+    uint16_t  params;
     ActorType category;
-    uint16_t free;
+    uint16_t  free;
 } actor_data;
 
 #define num_actors_addr 0x5c66fc

@@ -97,18 +97,22 @@ uint32_t set_actor_list(heap_node_t *begin){
     uint32_t count = 0;
     actor_data cur_data;
     while (cur){
-        cur_data.heap_node_begin = cur;
+        // cur_data.heap_node_begin = cur;
         cur_data.actor_instance_begin = cur + 1;
         cur_data.size = cur->size;
+        cur_data.actor_id = cur_data.actor_instance_begin->id;
+        cur_data.params = cur_data.actor_instance_begin->params;
         cur_data.category = cur_data.actor_instance_begin->type;
         cur_data.free = cur->free;
         actor_list[count] = cur_data;
         count++;
         cur = cur->next;
     }
-    actor_list[count].heap_node_begin = NULL;
+    // actor_list[count].heap_node_begin = NULL;
     actor_list[count].actor_instance_begin = NULL;
     actor_list[count].size = 0;
+    actor_list[count].actor_id = 0;
+    actor_list[count].params = 0;
     actor_list[count].category = 0;
     actor_list[count].free = 0;
     num_actors = count;
